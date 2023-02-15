@@ -6,7 +6,9 @@
 
 Codes for: "SPIDR: SDF-based Neural Point Fields for Illumination and Deformation"
 
-**UPDATE**: I am still actively writing/testing instruction and demo examples.
+**UPDATE 02/14:** Tested inference code on a machine (RTX2070) with new env. Works fine. Deformation intructions will be added this week.
+
+**UPDATE 02/10**: I am still actively writing/testing instruction and demo examples.
 
 ## Install
 
@@ -21,36 +23,52 @@ cd SPIDR
 pip install -r requirements.txt
 ```
 
+**Note**: 
+
+* some packages in `requirements.txt` (e.g., `torch` and `torch_scatter`) might need different cmd to install.
+* `open3d` has to be `>=0.16`
+
 **Torch extensions**
 
-We replaced original [PointNeRF](https://github.com/Xharlie/pointnerf)'s pycuda kernels with torch extensions. To set up our torch extensions for ray marching:
+We replaced original [PointNeRF](https://github.com/Xharlie/pointnerf)'s pycuda kernels (we don't need `pycuda`) with torch extensions. To set up our torch extensions for ray marching:
 
 ```bash
 cd models/neural_points/c_ext
 python setup.py build_ext --inplace
+cd -
 ```
 
 We have tested our codes on torch 1.8, 1.10, 1.11.
 
 ## Data Prepare
 
+### Datasets
+
 Download the dataset from the following links and put them under `./data_src/` directory:
 
-[NeRF-synthetic]([https://drive.google.com/drive/folders/128yBriW1IG_3NJ5Rp7APSTZsJqdJdfc1](https://drive.google.com/drive/folders/128yBriW1IG_3NJ5Rp7APSTZsJqdJdfc1)) scenes (`./data_src/nerf_synthetic`)
+* [NeRF-synthetic]([https://drive.google.com/drive/folders/128yBriW1IG_3NJ5Rp7APSTZsJqdJdfc1](https://drive.google.com/drive/folders/128yBriW1IG_3NJ5Rp7APSTZsJqdJdfc1)) scenes (`./data_src/nerf_synthetic`)
+* [NVSF-BlendedMVS](https://dl.fbaipublicfiles.com/nsvf/dataset/BlendedMVS.zip) scenes (`./data_src/BlendedMVS`)
+* Our added [scenes for deformation](https://drive.google.com/drive/folders/1zlHdPJST47psbEbrC71PWl04kfjH2GHe?usp=sharing) (`./data_src/deform_synthetic`)
 
-[NVSF-BlendedMVS](https://dl.fbaipublicfiles.com/nsvf/dataset/BlendedMVS.zip) scenes (`./data_src/BlendedMVS`)
+### Checkpoints
 
-Our added [scenes for deformation](https://drive.google.com/drive/folders/1zlHdPJST47psbEbrC71PWl04kfjH2GHe?usp=sharing) (`./data_src/deform_synthetic`)
+We provide some model checkpoints for testing (more will be added in the future)
 
-We also provided some pre-trained examples: 
+* If you want to train new scenes from scratch, you might need MVSNet [checkpoints](https://drive.google.com/drive/folders/1jGJhEzx9AMZi-GoXyGETf1DtGQxEilds) from the Point-NeRF. Put ckpt files in `checkpoints/MVSNet`
+* 
 
 ## Usage
 
 ### Training
 
-We'll update instructions later
+**Note:** We'll add more instructions later, currently might be buggy (NOT TESTED).
 
 **First stage**: train a Point-based NeRF model, this step is similar to the original PointNeRF.
+
+```bash
+cd run/
+python train_ft.py --config ../dev_scripts/spidr/manikin.ini --run_mode=sdf
+```
 
 **Second stage**: train the BRDF + Environment light MLPs
 
@@ -62,6 +80,12 @@ python test_ft.py --config ../dev_scripts/spidr/manikin.ini --run_mode=sdf --bak
 
 `--down_sample=0.5` halve the size of the rendered depth images.
 
+Then started BDRF branch training:
+
+```bash
+python train_ft.py --config ../dev_scripts/spidr/manikin.ini --run_mode=lighting
+```
+
 ### Testing
 
 We use manikin scene as an example.
@@ -72,6 +96,8 @@ To simply render frames (SPIDR* in the paper):
 cd run/
 python test_ft.py --config ../dev_scripts/spidr/manikin.ini --run_mode=sdf --split=test
 ```
+
+You can set a smaller `--random_sample_size` according to the GPU memory.
 
 For the rendering with BDRF estimations.
 
@@ -86,6 +112,8 @@ Then, with the baked light depth maps, we can run the BRDF-based rendering branc
 ```bash
 python test_ft.py --config ../dev_scripts/spidr/manikin.ini --run_mode=lighting --split=test
 ```
+
+Note on the output images: `*-coarse_raycolor.png` are the results without BRDF estimation (just normal NeRF rendering, coresponding to SPIDR* in the paper). `*-brdf_combine_raycolor.png` are the results with BRDF estimation and PB rendering.
 
 ### Editing
 
@@ -104,7 +132,7 @@ python ckpt2pcd.py --save_dir ../checkpoints/nerfsynth_sdf/manikin --ckpt 120000
 
 #### Deforming
 
-We provide three examples of different editing:
+We'll provide three examples of different editing:
 
 * Deformation with GT deformed meshes
 * Deformation with the extracted mesh from the our model
@@ -118,9 +146,10 @@ Simply add target environment HDRI in `--light_env_path`
 python test_ft.py --config ../dev_scripts/spidr/manikin.ini --run_mode=lighting --split=test --light_env_path=XXX.hdr
 ```
 
-Note: 
+Note:
 
 * the HDRI should be resized to `32x16` resolution before the relighting.
+* our tested low-res HDRIs come from [NeRFactor](https://xiuming.info/projects/nerfactor/), you can download their processed [light-probes](https://drive.google.com/file/d/17vLDd3WAHYtUXeLbZI4rTBAtBepOQUa6/view?usp=sharing).
 * light intensity can be scaled by flag `--light_intensity` e.g., `--light_intensity=1.7`
 
 ![demo_relight](https://nexuslrf.github.io/images/vid.gif)

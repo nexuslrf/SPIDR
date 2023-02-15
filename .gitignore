@@ -5,6 +5,7 @@ __pycache__/
 tags
 data_src/
 .vs/
+data/dtu/
 
 # C extensions
 *.so
