@@ -13,7 +13,7 @@ Codes for: "SPIDR: SDF-based Neural Point Fields for Illumination and Deformatio
 ## Install
 
 ```bash
-git clone https://github.com/nexuslrf/SPIDR.gi
+git clone https://github.com/nexuslrf/SPIDR.git
 cd SPIDR
 ```
 
