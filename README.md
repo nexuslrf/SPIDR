@@ -23,7 +23,7 @@ cd SPIDR
 pip install -r requirements.txt
 ```
 
-**Note**: 
+**Note**:
 
 * some packages in `requirements.txt` (e.g., `torch` and `torch_scatter`) might need different cmd to install.
 * `open3d` has to be `>=0.16`
@@ -48,14 +48,14 @@ Download the dataset from the following links and put them under `./data_src/` d
 
 * [NeRF-synthetic]([https://drive.google.com/drive/folders/128yBriW1IG_3NJ5Rp7APSTZsJqdJdfc1](https://drive.google.com/drive/folders/128yBriW1IG_3NJ5Rp7APSTZsJqdJdfc1)) scenes (`./data_src/nerf_synthetic`)
 * [NVSF-BlendedMVS](https://dl.fbaipublicfiles.com/nsvf/dataset/BlendedMVS.zip) scenes (`./data_src/BlendedMVS`)
-* Our added [scenes for deformation](https://drive.google.com/drive/folders/1zlHdPJST47psbEbrC71PWl04kfjH2GHe?usp=sharing) (`./data_src/deform_synthetic`)
+* Our added [scenes for deformation](https://drive.google.com/drive/folders/1zlHdPJST47psbEbrC71PWl04kfjH2GHe?usp=sharing) (`./data_src/deform_synthetic`) (`manikin` + `trex`, with blender sources)
 
 ### Checkpoints
 
 We provide some model checkpoints for testing (more will be added in the future)
 
 * If you want to train new scenes from scratch, you might need MVSNet [checkpoints](https://drive.google.com/drive/folders/1jGJhEzx9AMZi-GoXyGETf1DtGQxEilds) from the Point-NeRF. Put ckpt files in `checkpoints/MVSNet`
-* 
+* Our model checkpoints will be shared in this [goole-drive folder](https://drive.google.com/drive/folders/1JFO2kOjHdX4eaePq7w6IJEOylJs7IRJO?usp=sharing). (currently only `manikin`)
 
 ## Usage
 
@@ -156,6 +156,8 @@ Note:
 
 ## Citation
 
+If you find our work useful in your research, a citation will be appreciated 🤗:
+
 ```
 @article{liang2022spidr,
   title={SPIDR: SDF-based Neural Point Fields for Illumination and Deformation},
@@ -164,3 +166,7 @@ Note:
   year={2022}
 }
 ```
+
+## Acknowledgement
+
+This codebase is developed based on [Point-NeRF](https://github.com/Xharlie/pointnerf).  If you have any confusion about MVS and point initialization part, we recommend referring to their original repo.
