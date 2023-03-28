@@ -39,8 +39,8 @@ def write_pth(pth, new_pth, new_pcd, rot_mask=None, rot_mat=None):
     pth['neural_points.ori_normal'] = pth['neural_points.points_dir']
 
     point_num = pth['neural_points.xyz'].shape[0]
-    pth['neural_points.xyz'] = torch.from_numpy(new_pcd.point.positions.numpy())
-    pth['neural_points.points_dir'] = torch.from_numpy(new_pcd.point.normals.numpy())[None,...]
+    pth['neural_points.xyz'] = torch.from_numpy(new_pcd.point.positions.numpy().astype(np.float32))
+    pth['neural_points.points_dir'] = torch.from_numpy(new_pcd.point.normals.numpy().astype(np.float32))[None,...]
 
     if rot_mask is not None and rot_mat is not None:
         all_rotate = np.array([np.identity(3)] * point_num)
@@ -49,6 +49,6 @@ def write_pth(pth, new_pth, new_pcd, rot_mask=None, rot_mat=None):
                 all_rotate[mask] = mat
         else:
             all_rotate[rot_mask] = rot_mat
-        pth["neural_points.Rdeform"] = torch.from_numpy(all_rotate)[None,...]
+        pth["neural_points.Rdeform"] = torch.from_numpy(all_rotate.astype(np.float32))[None,...]
 
     torch.save(pth, new_pth)
