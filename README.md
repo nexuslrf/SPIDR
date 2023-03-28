@@ -160,6 +160,11 @@ Note:
 
 https://user-images.githubusercontent.com/34814176/228115046-ed415b89-08e7-4f98-948c-281ba837b662.mp4
 
+👇 EVA Unit-01 Statue in Shanghai (from BlendedMVS dataset)
+
+https://user-images.githubusercontent.com/34814176/228119852-4d4bc795-cbb8-4e87-a547-40178976c1f1.mp4
+
+
 ## Citation
 
 If you find our work useful in your research, a citation will be appreciated 🤗:
