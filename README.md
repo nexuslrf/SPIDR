@@ -156,9 +156,11 @@ Note:
 
 ## Results for FUN
 
-👇[SDEX Aerial GUNDAM](https://gundampros.com/product/sdex-standard-19-xvx-016-gundam-aerial/) from [TWFM](https://www.youtube.com/watch?v=5YGW2JRxWUU&list=PLJV1h9xQ7Hx_jXtO1GrrS0to_ojc672HG)
+👇[SDEX Aerial GUNDAM](https://gundampros.com/product/sdex-standard-19-xvx-016-gundam-aerial/) from [TWFM](https://www.youtube.com/watch?v=5YGW2JRxWUU&list=PLJV1h9xQ7Hx_jXtO1GrrS0to_ojc672HG) (Captured at my lab)
 
 https://user-images.githubusercontent.com/34814176/228115046-ed415b89-08e7-4f98-948c-281ba837b662.mp4
+
+
 
 👇 EVA Unit-01 Statue in Shanghai (from BlendedMVS dataset)
 
