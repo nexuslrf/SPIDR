@@ -2,9 +2,14 @@
 
 [Project Page](https://nexuslrf.github.io/SPIDR_webpage/) | [Paper](https://arxiv.org/abs/2210.08398)
 
-![demo](https://nexuslrf.github.io/images/lego_demo.gif)
-
 Codes for: "SPIDR: SDF-based Neural Point Fields for Illumination and Deformation"
+
+
+https://user-images.githubusercontent.com/34814176/228586906-93da4f5b-05c3-4132-9fc4-459e171a3d9f.mp4
+
+
+---
+
 
 **UPDATE 02/14:** Tested inference code on a machine (RTX2070) with new env. Works fine. Deformation intructions will be added this week.
 
