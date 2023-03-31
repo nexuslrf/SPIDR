@@ -299,9 +299,11 @@ class SDFMLP(PointAggregator):
             Rdeform = R_agg[r_idx_map]
 
         if Rdeform is not None:
-            dists_flat[..., :3] = (Rdeform * dists_flat[..., :3, None]).sum(-2)
+            # dists_flat[..., :3] =
+            if dists_flat.shape[-1] == 3:
+                dists_flat = (Rdeform * dists_flat[..., None]).sum(-2)
             if dists_flat.shape[-1] > 3:
-                dists_flat[..., 3:] = (Rdeform * dists_flat[..., 3:, None]).sum(-2)
+                dists_flat = torch.cat([(Rdeform * dists_flat[..., :3, None]).sum(-2),  (Rdeform * dists_flat[..., 3:, None]).sum(-2)])
         
         dists_flat[..., :3] = dists_flat[..., :3] @ sampled_Rw2c if uni_w2c else (dists_flat[..., None, :3] @ sampled_Rw2c).squeeze(-2)
         if self.opt.dist_xyz_freq != 0:

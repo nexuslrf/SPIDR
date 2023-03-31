@@ -29,7 +29,7 @@ To get the point cloud, you can use the provided script:
 
 ```bash
 
-python ckpt2pcd.py --save_dir ../checkpoints/nerfsynth_sdf/manikin --ckpt 120000_net_ray_marching.pth --pcd_file 120000_pcd.ply
+python ckpt2pcd.py --save_dir ../checkpoints/nerfsynth_sdf/manikin --ckpt 120000_net_ray_marching.pth --pcd 120000_pcd.ply
 
 ```
 
@@ -64,19 +64,11 @@ For the rendering with BDRF estimations, we need to first re-bake the depth maps
 
 ```bash
 
-python test_ft.py --config ../dev_scripts/spidr/manikin.ini --run_mode=sdf --bake_light --down_sample=0.5
-
-```
-
-Then, with the baked light depth maps, we can run the BRDF-based rendering branch.
-
-```bash
-
 python test_ft.py --config ../dev_scripts/spidr/manikin.ini --run_mode=sdf --bake_light --down_sample=0.5 --resume_iter 120010
 
 ```
 
-Then render with `run_mode=lighting`:
+Then, with the baked light depth maps, we can run the PBR rendering branch with `run_mode=lighting`:
 
 ```bash
 

@@ -10,7 +10,6 @@ https://user-images.githubusercontent.com/34814176/228586906-93da4f5b-05c3-4132-
 
 ---
 
-
 **UPDATE 02/14:** Tested inference code on a machine (RTX2070) with new env. Works fine. Deformation intructions will be added this week.
 
 **UPDATE 02/10**: I am still actively writing/testing instruction and demo examples.
@@ -60,7 +59,7 @@ Download the dataset from the following links and put them under `./data_src/` d
 We provide some model checkpoints for testing (more will be added in the future)
 
 * If you want to train new scenes from scratch, you might need MVSNet [checkpoints](https://drive.google.com/drive/folders/1jGJhEzx9AMZi-GoXyGETf1DtGQxEilds) from the Point-NeRF. Put ckpt files in `checkpoints/MVSNet`
-* Our model checkpoints will be shared in this [goole-drive folder](https://drive.google.com/drive/folders/1JFO2kOjHdX4eaePq7w6IJEOylJs7IRJO?usp=sharing). (currently only `manikin`)
+* Our model checkpoints will be shared in this [goole-drive folder](https://drive.google.com/drive/folders/1JFO2kOjHdX4eaePq7w6IJEOylJs7IRJO?usp=sharing). (currently only `manikin` & `lego`)
 
 ## Usage
 
@@ -142,6 +141,8 @@ We'll provide three examples of different editing:
 * Deformation with GT deformed meshes
 * Deformation with the extracted mesh from the our model
 * Direct point manipulations
+
+Please [here](deform_tools/examples) for the examples.
 
 #### Relighting
 

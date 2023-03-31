@@ -20,7 +20,7 @@ def get_pcd(pth_file, pcd_file):
     n_pts = xyz.shape[0]
     pcd = o3d.t.geometry.PointCloud()
     pcd.point.positions = o3c.Tensor(xyz.cpu().numpy())
-    pcd.point.colors = o3c.Tensor((255*color[0].cpu().numpy()).astype(np.uint8))
+    pcd.point.colors = o3c.Tensor((255*color[0].cpu().numpy().clip(0,1)).astype(np.uint8))
     pcd.point.normals = o3c.Tensor(normal[0].cpu().numpy())
     pcd.point.quality = o3c.Tensor(np.arange(n_pts)[...,None].astype(np.float32))
     
