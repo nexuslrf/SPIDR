@@ -10,8 +10,7 @@ https://user-images.githubusercontent.com/34814176/228586906-93da4f5b-05c3-4132-
 
 ---
 
-**UPDATE 02/14:** Tested inference code on a machine (RTX2070) with new env. Works fine. Deformation intructions will be added this week.
-
+**UPDATE 02/14:** Tested inference code on a machine (RTX2070) with new env. Works fine. 
 **UPDATE 02/10**: I am still actively writing/testing instruction and demo examples.
 
 ## Install
