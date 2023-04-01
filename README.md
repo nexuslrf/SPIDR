@@ -139,7 +139,7 @@ python ckpt2pcd.py --save_dir ../checkpoints/nerfsynth_sdf/manikin --ckpt 120000
 We'll provide three examples of different editing:
 
 * [Deformation with GT deformed meshes](deform_tools/examples/mesh_guided_deformation.md)
-* Deformation with the extracted mesh from the our model
+* [Deformation with the extracted mesh from the our model, e.g., ARAP](deform_tools/examples/mesh_guided_deformation_ARAP.ipynb)
 * [Direct point manipulations](deform_tools/examples/point_manipulation.ipynb)
 
 Please check [here](deform_tools/examples) for the examples.

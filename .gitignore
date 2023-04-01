@@ -109,3 +109,4 @@ venv.bak/
 .mypy_cache/
 
 
+dev_scripts/w_n360/configs
