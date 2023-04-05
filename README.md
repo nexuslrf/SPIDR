@@ -144,6 +144,12 @@ We'll provide three examples of different editing:
 
 Please check [here](deform_tools/examples) for the examples.
 
+P.S. Utilize some segmentation tools to assist the manual deformation (e.g., Point Selections) could be very interesting research direction.
+
+👇 The 2D segmentation demo from [Segment Anything](https://segment-anything.com/)
+<img src="https://nexuslrf.github.io/SPIDR_webpage/images/sam.png"  width="40%">
+
+
 #### Relighting
 
 Simply add target environment HDRI in `--light_env_path`
