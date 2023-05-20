@@ -4,15 +4,11 @@
 
 Codes for: "SPIDR: SDF-based Neural Point Fields for Illumination and Deformation"
 
-
 https://user-images.githubusercontent.com/34814176/228586906-93da4f5b-05c3-4132-9fc4-459e171a3d9f.mp4
-
 
 ---
 
-**UPDATE 02/14:** Tested inference code on a machine (RTX2070) with new env. Works fine. 
-
-**UPDATE 02/10**: I am still actively writing/testing instruction and demo examples.
+**UPDATE 02/14:** Tested inference code on a machine (RTX2070) with new env. Works fine.
 
 ## Install
 
@@ -59,7 +55,7 @@ Download the dataset from the following links and put them under `./data_src/` d
 We provide some model checkpoints for testing (more will be added in the future)
 
 * If you want to train new scenes from scratch, you might need MVSNet [checkpoints](https://drive.google.com/drive/folders/1jGJhEzx9AMZi-GoXyGETf1DtGQxEilds) from the Point-NeRF. Put ckpt files in `checkpoints/MVSNet`
-* Our model checkpoints will be shared in this [goole-drive folder](https://drive.google.com/drive/folders/1JFO2kOjHdX4eaePq7w6IJEOylJs7IRJO?usp=sharing). (currently only `manikin`, `trex`, and `lego`)
+* Our model checkpoints will be shared in this [goole-drive folder](https://drive.google.com/drive/folders/1JFO2kOjHdX4eaePq7w6IJEOylJs7IRJO?usp=sharing). 
 
 ## Usage
 
@@ -146,10 +142,9 @@ Please check [here](deform_tools/examples) for the examples.
 
 P.S. Utilize some segmentation tools to assist the manual deformation (e.g., Point Selections) could be very interesting research direction.
 
-👇 The 2D segmentation demo from [Segment Anything](https://segment-anything.com/)
+👇 The 2D segmentation demo from [Segment Anything](https://segment-anything.com/), my intintial attempt is here: [SAM-3D-Selector](https://github.com/nexuslrf/SAM-3D-Selector)
 
 <img src="https://nexuslrf.github.io/SPIDR_webpage/images/sam.png"  width="40%">
-
 
 #### Relighting
 
@@ -173,12 +168,9 @@ Note:
 
 https://user-images.githubusercontent.com/34814176/228115046-ed415b89-08e7-4f98-948c-281ba837b662.mp4
 
-
-
 👇 EVA Unit-01 Statue in Shanghai (from BlendedMVS dataset)
 
 https://user-images.githubusercontent.com/34814176/228119852-4d4bc795-cbb8-4e87-a547-40178976c1f1.mp4
-
 
 ## Citation
 
