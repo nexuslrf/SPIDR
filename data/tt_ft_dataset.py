@@ -475,7 +475,7 @@ class TtFtDataset(BaseDataset):
             proj_mat_l[:3, :4] = downintrinsic @ w2c[:3, :4]
             proj_mats += [(proj_mat_l, self.near_far)]
 
-        proj_mats = np.stack(proj_mats)
+        # proj_mats = np.stack(proj_mats, dtype=object)
         intrinsics = np.stack(intrinsics)
         world2cams, cam2worlds = np.stack(world2cams), np.stack(cam2worlds)
         return proj_mats, intrinsics, world2cams, cam2worlds

@@ -510,7 +510,7 @@ def main():
             opt.resume_iter = "latest"
         resume_iter = opt.resume_iter if opt.resume_iter != "latest" else get_latest_epoch(resume_dir)
         if resume_iter is None:
-            visualizer.print_details("No previous checkpoints at iter {} !!", resume_iter)
+            visualizer.print_details(f"No previous checkpoints at iter {resume_iter} in {resume_dir} !!", )
             exit()
         else:
             opt.resume_iter = resume_iter

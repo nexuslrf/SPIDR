@@ -8,6 +8,8 @@ https://user-images.githubusercontent.com/34814176/228586906-93da4f5b-05c3-4132-
 
 ---
 
+**UPDATE 06/04:** Include more trained checkpoints (synthetic + blendedmvs).
+
 **UPDATE 02/14:** Tested inference code on a machine (RTX2070) with new env. Works fine.
 
 ## Install
@@ -47,7 +49,7 @@ We have tested our codes on torch 1.8, 1.10, 1.11.
 Download the dataset from the following links and put them under `./data_src/` directory:
 
 * [NeRF-synthetic]([https://drive.google.com/drive/folders/128yBriW1IG_3NJ5Rp7APSTZsJqdJdfc1](https://drive.google.com/drive/folders/128yBriW1IG_3NJ5Rp7APSTZsJqdJdfc1)) scenes (`./data_src/nerf_synthetic`)
-* [NVSF-BlendedMVS](https://dl.fbaipublicfiles.com/nsvf/dataset/BlendedMVS.zip) scenes (`./data_src/BlendedMVS`)
+* [NVSF-BlendedMVS](https://drive.google.com/drive/folders/1TNtd1HvqxDONk_eqsrAImrUkS2ZgRXOO?usp=sharing) scenes (`./data_src/BlendedMVS`)
 * Our added [scenes for deformation](https://drive.google.com/drive/folders/1zlHdPJST47psbEbrC71PWl04kfjH2GHe?usp=sharing) (`./data_src/deform_synthetic`) (`manikin` + `trex`, with blender sources)
 
 ### Checkpoints
@@ -55,7 +57,7 @@ Download the dataset from the following links and put them under `./data_src/` d
 We provide some model checkpoints for testing (more will be added in the future)
 
 * If you want to train new scenes from scratch, you might need MVSNet [checkpoints](https://drive.google.com/drive/folders/1jGJhEzx9AMZi-GoXyGETf1DtGQxEilds) from the Point-NeRF. Put ckpt files in `checkpoints/MVSNet`
-* Our model checkpoints will be shared in this [goole-drive folder](https://drive.google.com/drive/folders/1JFO2kOjHdX4eaePq7w6IJEOylJs7IRJO?usp=sharing). 
+* Our model checkpoints and data are all shared in this [goole-drive folder](https://drive.google.com/drive/folders/1dGpTemmHEADRfBOsg3pUw2MhglZFxiCy?usp=sharing).
 
 ## Usage
 
